@@ -1,0 +1,12 @@
+Ts = 1;
+z = tf('z', Ts);
+G1 = -40/27;
+G2 = (40/27) * z / (z - 0.9);
+G3 = (5/3) * z / (z - 0.9)^2;
+G = G2 + G3;
+N = 30; 
+[y, t] = impulse(G, N);
+stem(t, y, 'filled');
+title('单位delta响应');
+xlabel('n'); ylabel('Amplitude');
+grid on;
